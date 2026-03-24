@@ -1,5 +1,5 @@
 # Alpha X gym - UI 
-# Alpha-X Gym — Premium Website Redesign
+# Alpha X Gym — Premium Website 
 
 ## 🚀 Overview
 A high-impact redesign of a local gym website (Alpha-X Gym, Usilampatti) into a premium, conversion-focused landing page inspired by modern fitness brands.
