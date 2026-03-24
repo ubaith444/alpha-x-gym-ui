@@ -47,7 +47,7 @@ A high-impact redesign of a local gym website (Alpha-X Gym, Usilampatti) into a 
 ---
 
 ## 📞 Live Demo
-(Add GitHub Pages link here)
+(https://ubaith444.github.io/alpha-x-gym-ui/)
 
 ---
 
