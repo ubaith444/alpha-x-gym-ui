@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claim Your 7-Day Pass | Alpha-X Gym</title>
+<link rel="stylesheet" href="premium.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+  .reg-container { 
+    max-width: 1000px; width: 100%; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; 
+    background: var(--surface-low); padding: 60px; border-radius: 8px; position: relative; overflow: hidden;
+  }
+  .reg-container::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary);
+  }
+  .reg-info h1 { font-size: 52px; margin-bottom: 24px; color: var(--white); }
+  .reg-info p { font-size: 16px; line-height: 1.8; color: var(--text-muted); margin-bottom: 40px; }
+  .benefits { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .benefit { display: flex; align-items: flex-start; gap: 16px; }
+  .benefit-icon { width: 40px; height: 40px; background: var(--surface-high); display: flex; align-items: center; justify-content: center; color: var(--primary); border-radius: 4px; flex-shrink: 0; }
+  .benefit-text strong { display: block; color: var(--white); margin-bottom: 4px; }
+  .benefit-text span { font-size: 14px; color: var(--text-muted); }
+  
+  .testimonial { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--outline); }
+  .t-quote { font-style: italic; color: var(--white); font-size: 18px; margin-bottom: 12px; }
+  .t-author { font-weight: 700; color: var(--primary); text-transform: uppercase; font-size: 13px; letter-spacing: 0.1em; }
+
+  .reg-form { background: var(--surface-high); padding: 40px; border-radius: 4px; }
+  .reg-form h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin-bottom: 10px; color: var(--white); }
+  .reg-form .fhint { font-size: 12px; color: var(--text-muted); margin-bottom: 30px; }
+  
+  @media (max-width: 900px) {
+    .reg-container { grid-template-columns: 1fr; padding: 40px 20px; }
+    .reg-info h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="reg-container">
+  <div class="reg-info">
+    <h1>CLAIM YOUR<br>7-DAY PASS</h1>
+    <p>Experience elite coaching and world-class equipment with zero commitment. This is where your evolution begins.</p>
+    
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">👤</div>
+        <div class="benefit-text">
+          <strong>1-on-1 coaching session</strong>
+          <span>Personalized movement assessment and goal setting.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🏋️</div>
+        <div class="benefit-text">
+          <strong>Full facility access</strong>
+          <span>24/7 access to all strength and cardio zones.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🧘</div>
+        <div class="benefit-text">
+          <strong>Recovery zone entry</strong>
+          <span>Post-workout recovery and specialized equipment.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p class="t-quote">"The best investment I ever made in my health."</p>
+      <p class="t-author">— MARCUS T.</p>
+    </div>
+  </div>
+
+  <div class="reg-form">
+    <h2>Register Your Trial</h2>
+    <p class="fhint">Fill out the details below to secure your spot. Only 5 passes remaining this week.</p>
+    <form action="#" onsubmit="alert('Pass Claimed! Redirecting to WhatsApp...'); return false;">
+      <div class="fg">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your Name" required>
+      </div>
+      <div class="fg">
+        <label>Email Address</label>
+        <input type="email" placeholder="email@example.com" required>
+      </div>
+      <div class="fg">
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="63832 XXXXX" required>
+      </div>
+      <button type="submit" class="fbtn"><span>ACTIVATE MY TRIAL →</span></button>
+    </form>
+    <p style="font-size: 10px; color: var(--text-muted); margin-top: 20px; line-height: 1.6;">
+      By clicking "Activate My Trial", you agree to our Terms of Service and Privacy Policy. Must be 18+ and a local resident.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

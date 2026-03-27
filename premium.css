@@ -3,31 +3,47 @@
    Apply after base styles. Overrides only what needs upgrading.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ─── DESIGN TOKENS ─── */
 :root {
-  --black:   #0a0a0a;
-  --char:    #111111;
-  --dark:    #1a1a1a;
-  --iron:    #242424;
-  --mid:     #383838;
-  --muted:   #606060;
-  --smoke:   #909090;
-  --light:   #e8e4dc;
-  --orange:  #ff4d00;
-  --orange2: #cc3d00;
+  --background: #131313;
+  --surface:    #131313;
+  --surface-low: #1c1b1b;
+  --surface-high: #2a2a2a;
+  --surface-highest: #353535;
+  --outline:    #5b4137;
+  --primary:    #ff5b00;
+  --primary-dim: #802a00;
+  --on-primary: #ffffff;
+  --text-main:  #e5e2e1;
+  --text-muted: #e4beb1;
+  --white:      #ffffff;
+  --black:      #0e0e0e;
+}
+
+/* Backwards compatibility / legacy tokens mapping */
+:root {
+  --black: var(--black);
+  --char:  var(--surface-low);
+  --dark:  var(--surface-high);
+  --iron:  #242424;
+  --mid:   var(--outline);
+  --muted: var(--text-muted);
+  --smoke: var(--text-muted);
+  --light: var(--text-main);
+  --orange: var(--primary);
+  --orange2: var(--primary-dim);
   --gold:    #c9a84c;
-  --white:   #ffffff;
 }
 
 /* ─── BASE ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html  { scroll-behavior: smooth; }
 body  {
-  background: var(--black);
-  color: var(--light);
-  font-family: 'DM Sans', sans-serif;
+  background: var(--background);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
   cursor: none;
@@ -60,9 +76,9 @@ nav {
 }
 nav.scrolled { padding: 14px 56px; background: rgba(10,10,10,.97); border-bottom-color: rgba(255,77,0,.15); }
 .logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
-.logo-top { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: .22em; color: var(--white); }
-.logo-top span { color: var(--orange); }
-.logo-sub { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.logo-top { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: .05em; color: var(--white); }
+.logo-top span { color: var(--primary); }
+.logo-sub { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
 .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
 .nav-links a {
   text-decoration: none; color: var(--smoke);
@@ -143,14 +159,16 @@ nav.scrolled { padding: 14px 56px; background: rgba(10,10,10,.97); border-bottom
 .eyebrow span { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--orange); font-weight: 500; }
 .eyebrow-sep { color: rgba(255,77,0,.45); margin: 0 2px; }
 h1 {
-  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
   font-size: clamp(54px, 8.5vw, 122px);
   line-height: .88; text-transform: uppercase; color: var(--white);
   animation: fadeUp .9s .35s both;
   text-shadow: 0 2px 40px rgba(0,0,0,.6);
+  letter-spacing: -0.02em;
 }
-h1 .stroke { -webkit-text-stroke: 2px rgba(255,255,255,.22); color: transparent; }
-h1 .acc { color: var(--orange); text-shadow: 0 0 60px rgba(255,77,0,.35); }
+h1 .stroke { -webkit-text-stroke: 1.5px rgba(255,255,255,.22); color: transparent; }
+h1 .acc { color: var(--primary); text-shadow: 0 0 60px rgba(255,123,0,.35); }
 .hero-tagline {
   margin-top: 28px; font-size: 15px; line-height: 1.8;
   color: var(--smoke); max-width: 440px; font-style: italic;
@@ -177,12 +195,13 @@ h1 .acc { color: var(--orange); text-shadow: 0 0 60px rgba(255,77,0,.35); }
 /* Primary button — shimmer slide */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--orange); color: var(--white);
-  text-decoration: none; font-size: 12px; font-weight: 500;
+  background: var(--primary); color: var(--white);
+  text-decoration: none; font-size: 12px; font-weight: 600;
   letter-spacing: .15em; text-transform: uppercase;
-  padding: 16px 38px; position: relative; overflow: hidden;
+  padding: 18px 42px; position: relative; overflow: hidden;
   border: none; cursor: none; transition: color .25s, box-shadow .3s;
-  box-shadow: 0 0 0 0 rgba(255,77,0,0);
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 rgba(255,123,0,0);
 }
 .btn::after {
   content: ''; position: absolute; inset: 0;
@@ -227,15 +246,16 @@ h1 .acc { color: var(--orange); text-shadow: 0 0 60px rgba(255,77,0,.35); }
 .td  { color: rgba(255,255,255,.32); }
 
 /* ─── SHARED SECTION ─── */
-section { padding: 110px 56px; }
+section { padding: 8rem 56px; }
 .sl { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
 .sl-line { width: 28px; height: 1px; background: var(--orange); }
 .sl span { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--orange); font-weight: 500; }
 .st {
-  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
   font-size: clamp(38px, 5.8vw, 76px);
   line-height: .92; text-transform: uppercase; color: var(--white);
-  letter-spacing: .01em;
+  letter-spacing: -0.01em;
 }
 .st .s { -webkit-text-stroke: 1.5px rgba(255,255,255,.26); color: transparent; }
 
@@ -244,12 +264,13 @@ section { padding: 110px 56px; }
 .ph { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
 .pnote { max-width: 300px; font-size: 14px; color: var(--smoke); line-height: 1.75; }
 .pnote a { color: var(--orange); text-decoration: none; }
-.pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .plan {
-  background: var(--dark); padding: 46px 36px;
+  background: var(--surface-low); padding: 56px 42px;
   position: relative; overflow: hidden;
   transition: background .3s, transform .25s;
   cursor: none;
+  border-radius: 4px;
 }
 .plan::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -260,14 +281,14 @@ section { padding: 110px 56px; }
 .plan:hover { background: var(--iron); transform: translateY(-3px); }
 
 /* Highlighted plan */
-.plan.hl { background: var(--orange); transform: none !important; }
+.plan.hl { background: var(--primary); transform: none !important; }
 .plan.hl .pname, .plan.hl .pprice { color: var(--white); }
-.plan.hl .pdesc, .plan.hl .pperiod { color: rgba(255,255,255,.72); }
-.plan.hl .pfeat li { color: rgba(255,255,255,.88); }
-.plan.hl .pfeat li::before { color: rgba(255,255,255,.65); }
-.plan.hl .pbadge { background: rgba(255,255,255,.22); color: var(--white); }
+.plan.hl .pdesc, .plan.hl .pperiod { color: rgba(255,255,255,.8); }
+.plan.hl .pfeat li { color: var(--white); }
+.plan.hl .pfeat li::before { color: var(--white); }
+.plan.hl .pbadge { background: rgba(255,255,255,.2); color: var(--white); }
 .plan.hl::before { display: none; }
-.plan.hl .pdiv { background: rgba(255,255,255,.22); }
+.plan.hl .pdiv { background: rgba(255,255,255,.2); }
 
 .pbadge {
   display: inline-block; font-size: 9px; letter-spacing: .2em;
@@ -307,12 +328,13 @@ section { padding: 110px 56px; }
 #services { background: var(--black); }
 .si { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
 .sblurb { max-width: 340px; font-size: 15px; color: var(--smoke); line-height: 1.8; }
-.sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.sgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .srv {
-  background: var(--dark); padding: 46px 36px;
+  background: var(--surface-low); padding: 56px 42px;
   position: relative; overflow: hidden;
   transition: background .3s, transform .25s;
   cursor: none;
+  border-radius: 4px;
 }
 .srv::after {
   content: ''; position: absolute; bottom: 0; left: 0;
@@ -330,7 +352,7 @@ section { padding: 110px 56px; }
 
 /* ─── TESTIMONIALS ─── */
 #testimonials { background: var(--char); }
-.tgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2px; margin-top: 64px; }
+.tgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; margin-top: 64px; }
 .tcard {
   background: var(--dark); padding: 46px 36px;
   transition: transform .25s, background .25s;
